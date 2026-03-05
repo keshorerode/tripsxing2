@@ -43,8 +43,7 @@ import './App.css';
 
 // --- Components for Dashboard View ---
 
-const TopNav = () => {
-  const [theme, setTheme] = useState('light');
+const TopNav = ({ theme, setTheme }) => {
 
   return (
     <header className="db-header">
@@ -934,7 +933,7 @@ const ActivityPlanning = () => {
 
               <div className="objective-box">
                 <span className="objective-label">STRATEGIC OBJECTIVE</span>
-                <p className="objective-desc">{activity.objective}</p>
+                <p className="objective-desc" style={{ color: 'var(--text-primary)' }}>{activity.objective}</p>
               </div>
 
               <div className="activity-actions">
@@ -1201,7 +1200,7 @@ const AddRoleModal = ({ isOpen, onClose }) => {
           </div>
         ) : (
           <div className="permissions-container">
-             <div style={{ display: 'flex', gap: '40px', marginBottom: '16px', borderBottom: '1px solid #F4F7FE', paddingBottom: '12px' }}>
+             <div style={{ display: 'flex', gap: '40px', marginBottom: '16px', borderBottom: '1px solid var(--border-primary)', paddingBottom: '12px' }}>
                 <span style={{ fontSize: '11px', fontWeight: 800, color: '#A3AED0' }}>ALL</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, color: '#1B2559', flex: 1 }}>MODULE</span>
                 <div style={{ display: 'flex', gap: '40px' }}>
@@ -1412,9 +1411,10 @@ const Governance = () => {
 // --- Main Dashboard Entry ---
 const Dashboard = () => {
   const [activeNavItem, setActiveNavItem] = useState('dashboard');
+  const [theme, setTheme] = useState('light');
 
   return (
-    <div className="app-container">
+    <div className={`app-container ${theme === 'dark' ? 'dark-theme' : ''}`}>
       <div className="dashboard-wrapper">
         {/* Modern Sidebar Menu */}
         <nav className="nav">
@@ -1470,7 +1470,7 @@ const Dashboard = () => {
 
         {/* Main Content Area */}
         <main className="main-content" style={{ padding: '32px 40px 40px 112px', flex: 1, height: '100%', overflowY: 'auto' }}>
-          <TopNav />
+          <TopNav theme={theme} setTheme={setTheme} />
           <div style={{ paddingTop: '40px' }}>
             {activeNavItem === 'dashboard' ? (
               <DashboardContent />
