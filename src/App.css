@@ -406,14 +406,15 @@
   gap: 32px;
 }
 
-.db-logo {
-  display: flex;
-  align-items: center;
-  margin-right: 16px;
+.sidebar-top-logo {
+  position: absolute;
+  top: 32px;
+  left: 24px;
+  z-index: 105;
 }
 
-.db-logo img {
-  height: 28px;
+.sidebar-top-logo img {
+  height: 24px;
   width: auto;
   object-fit: contain;
 }
