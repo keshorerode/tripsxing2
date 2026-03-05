@@ -334,13 +334,15 @@
   color: #ff476d;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 12px 16px;
   border-radius: 12px;
   border: 1px solid #E0E5F2;
   font-size: 14px;
   color: #1a1a3d;
+  background-color: transparent;
 }
 
 .form-group input::placeholder {
@@ -354,7 +356,8 @@
   margin-top: 40px;
 }
 
-.btn-secondary {
+.btn-secondary,
+.btn-modal-cancel {
   padding: 10px 30px;
   background: transparent;
   border: 1px solid #E0E5F2;
@@ -364,7 +367,9 @@
   cursor: pointer;
 }
 
-.btn-register {
+.btn-register,
+.btn-modal-primary,
+.btn-modal-schedule {
   padding: 10px 30px;
   background: #2b3674;
   color: white;
@@ -399,6 +404,18 @@
   display: flex;
   align-items: center;
   gap: 32px;
+}
+
+.db-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.db-logo img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
 }
 
 .db-tabs {

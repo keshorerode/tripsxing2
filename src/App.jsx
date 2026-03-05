@@ -49,6 +49,9 @@ const TopNav = () => {
   return (
     <header className="db-header">
       <div className="db-header-left">
+        <div className="db-logo">
+          <img src="/tripsxing-logo.png" alt="Tripsxing" />
+        </div>
         <div className="db-tabs">
           <div className="db-tab active">
             <LayoutGrid size={18} />
