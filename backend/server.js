@@ -15,6 +15,8 @@ const activitiesRouter = require('./routes/activities');
 const meetingsRouter = require('./routes/meetings');
 const usersRouter = require('./routes/users');
 const rolesRouter = require('./routes/roles');
+const employeesRouter = require('./routes/employees');
+const servicesRouter = require('./routes/services');
 
 // Middleware
 app.use(cors());
@@ -27,6 +29,8 @@ app.use('/api/activities', activitiesRouter);
 app.use('/api/meetings', meetingsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/roles', rolesRouter);
+app.use('/api/employees', employeesRouter);
+app.use('/api/services', servicesRouter);
 
 
 // Auth Route: Login

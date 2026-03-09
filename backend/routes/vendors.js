@@ -12,7 +12,16 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create vendor
+// Get single vendor
+router.get('/:id', async (req, res) => {
+  try {
+    const result = await db.query('SELECT * FROM vendors WHERE id = $1', [req.params.id]);
+    if (result.rows.length === 0) return res.status(440).json({ message: 'Vendor not found' });
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 router.post('/', async (req, res) => {
   const { name, category, type, rating, status, initial, description } = req.body;
   try {

@@ -9,6 +9,7 @@ import MeetingsPage from './pages/Meetings';
 import GovernancePage from './pages/Governance';
 import ProfilePage from './pages/Profile';
 import SettingsPage from './pages/Settings';
+import ManageServicesPage from './pages/ManageServices';
 import LoginPage from './pages/Login';
 import SetPasswordPage from './pages/SetPassword';
 import './App.css';
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="governance" element={<GovernancePage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="settings" element={<SettingsPage />} />
+          <Route path="vendors/:vendorId/services" element={<ManageServicesPage />} />
           
           <Route path="*" element={
             <div className="empty-state">

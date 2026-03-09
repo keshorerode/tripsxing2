@@ -1,9 +1,16 @@
-import React from 'react';
 import { X, ExternalLink, Mail, Phone, MapPin, ShieldCheck, Globe } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import StarRating from '../StarRating';
 
 const VendorDetailModal = ({ vendor, isOpen, onClose, onDelete, onEdit }) => {
+  const navigate = useNavigate();
+
   if (!isOpen || !vendor) return null;
+
+  const handleManageServices = () => {
+    navigate(`/vendors/${vendor.id}/services`);
+    onClose();
+  };
 
   return (
     <div className="modal-overlay-v2" onClick={onClose}>
@@ -76,7 +83,7 @@ const VendorDetailModal = ({ vendor, isOpen, onClose, onDelete, onEdit }) => {
             <div style={{ flex: 1 }}></div>
             <button className="btn-cancel-v2" onClick={() => onEdit(vendor)}>Edit Vendor</button>
             <button className="btn-cancel-v2" onClick={onClose}>Close</button>
-            <button className="btn-register-v2">
+            <button className="btn-register-v2" onClick={handleManageServices}>
               Manage Services <ExternalLink size={16} />
             </button>
         </div>
